@@ -1,7 +1,10 @@
 #Cygni Makefile
-#Copyright 2011 teho Labs
+#2011 teho Labs
 
 NAME = basic
+
+# Defines the part type that this project uses.
+PART=PART_LM3S3N26
 
 #include the toolchain settings 
 include $.../toolchainsettings
@@ -67,7 +70,7 @@ CP      = arm-none-eabi-objcopy
 OD	= arm-none-eabi-objdump
 
 
-MACROS  = -DTARGET_IS_TEMPEST_RC5
+MACROS  = -DTARGET_IS_TEMPEST_RC5 -D$(PART)
 CFLAGS  =  -I./ -I$(DIR_STELLARISWARE) -std=c99 -fno-common -Os -g -mcpu=cortex-m3 -mthumb 
 LFLAGS  = -T $(LINKER) -nostartfiles
 CPFLAGS = -Obinary

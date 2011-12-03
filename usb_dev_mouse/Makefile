@@ -1,5 +1,5 @@
 #******************************************************************************
-# This makefile was modified to work on Eridani an LM3S3651 based board
+# This makefile was modified to work on Cygni an LM3S3x26 based board
 # The author imposes no change in the licence from TI below
 # The software remains AS IS with no Warranty
 # 
@@ -27,13 +27,12 @@
 #
 #******************************************************************************
 
-#
-# Defines the part type that this project uses.
-#
-PART=LM3S3N26
 
 #Program name
 NAME = usb_dev_mouse
+
+# Defines the part type that this project uses.
+PART=PART_LM3S3N26
 
 #include the toolchain settings 
 include $.../toolchainsettings
@@ -154,7 +153,7 @@ ${COMPILER}/usb_dev_mouse.axf: ${ROOT}/driverlib/${COMPILER}-cm3/libdriver-cm3.a
 ${COMPILER}/usb_dev_mouse.axf: $(LINKER)
 SCATTERgcc_usb_dev_mouse=$(LINKER)
 ENTRY_usb_dev_mouse=ResetISR
-CFLAGSgcc=-DTARGET_IS_DUSTDEVIL_RA0
+CFLAGSgcc=-DTARGET_IS_TEMPEST_RC5 -D$(PART)
 
 #
 # Include the automatically generated dependency files.
