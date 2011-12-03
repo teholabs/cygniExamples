@@ -1,7 +1,7 @@
 #Cygni Makefile
 #Copyright 2011 teho Labs
 
-NAME = blinky
+NAME = basic
 
 #include the toolchain settings 
 include $.../toolchainsettings
@@ -74,8 +74,8 @@ CPFLAGS = -Obinary
 ODFLAGS	= -D
 
 SOURCES = \
-	$(NAME).c startup_gcc.c\
-	$(DIR_DRIVERLIB)/gcc-cm3/libdriver-cm3.a\
+	$(NAME).c startup_gcc.c monitor.c\
+	$(DIR_DRIVERLIB)/gcc-cm3/libdriver.a\
 
 all: reg
 
